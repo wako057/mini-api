@@ -1,0 +1,18 @@
+{
+  "logs": {
+    "name": "mini-api",
+    "files": {
+      "enable": true,
+      "path": "logs/",
+      "name": "mini-api",
+      "level": "info"
+    }
+  },
+  "accessControl": {
+    "enable": true,
+    "allowedOrigins": [],
+    "allowMethods": "GET,PUT,POST,DELETE,PATCH,PURGE",
+    "allowHeaders": "JWT,Content-Type,Cache-Control,X-Range,X-Requested-With",
+    "exposeHeaders": "Content-Range"
+  }
+}

@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  mini-api-node:
+    container_name: mini-api-node
+    build: ${MINI_API_PATH:-.}/docker
+    image: nexus.wako057.net:18442/mini-api-node:1.0
+    volumes:
+      - ${MINI_API_PATH:-.}/:/var/nodejs/mini-api-node
+    expose:
+      - 8080
+    labels:
+      traefik.frontend.rule: "Host: mini-api.wako057.net"
+      traefik.docker.network: "front"
+      traefik.port: 8080
+      traefik.frontend.entryPoints: http
+    environment:
+      NODE_PORT: 8080
+      NODE_ENV: development
+      ENV_LOG_LEVEL: trace
+      ENV_LOG_DISABLE_STATUS: 1
+    networks:
+      front:
