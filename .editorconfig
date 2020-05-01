@@ -1,4 +1,4 @@
-# top-most EditorConfig file
+# top-most EditorConfig file    bitnami/rabbitmq:latest rabbitmqctl -n rabbit@rabbitmq-server status
 root = true
 
 # Unix-style newlines with a newline ending every file
