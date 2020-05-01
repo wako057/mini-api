@@ -1,0 +1,43 @@
+{
+  "name": "indb-live-realtime-api",
+  "version": "0.0.1",
+  "description": "Live realtime API",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "build": "echo 'nothing to do yet'",
+    "server:dev": "nodemon server.js | bunyan",
+    "poller:dev": "nodemon poller.js | bunyan",
+    "tests:eslint": "eslint .",
+    "tests": "NODE_ENV=test jest --verbose --runInBand --forceExit",
+    "tests:coverage": "NODE_ENV=test jest --runInBand --coverage",
+    "tests:sonar": "sonar-scanner -Dsonar.host.url=http://sonar.wako057.net"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "bunyan": "^1.8.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "supertest": "^3.4.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "globalTeardown": "./tests/teardown.js",
+    "globalSetup": "./tests/setup.js",
+    "unmockedModulePathPatterns": [
+      "./node_modules/"
+    ],
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/tests/"
+    ],
+    "globals": {
+      "versionRoute": "/v1"
+    }
+  }
+}
