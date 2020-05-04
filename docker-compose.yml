@@ -3,8 +3,8 @@ version: '3.7'
 services:
   mini-api-node:
     container_name: mini-api-node
-    build: ${MINI_API_PATH:-.}/docker
-    image: nexus.wako057.net:18442/mini-api-node:1.0
+    build: ${MINI_API_PATH:-.}/docker/node
+    image: nexus.wako057.net:18442/mini-api-node:1.0.0
     volumes:
       - ${MINI_API_PATH:-.}/:/var/nodejs/mini-api-node
     expose:
