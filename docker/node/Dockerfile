@@ -48,14 +48,15 @@ COPY wait-for-it /usr/local/bin/wait-for-it
 RUN chmod +x /usr/local/bin/wait-for-it
 
 # Install entrypoint
-COPY ./entrypoint.sh /usr/local/bin
+COPY entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 
 USER root
-COPY ./run.sh /usr/local/bin/
-
+COPY run.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run.sh
+COPY ./healthcheck.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/healthcheck.sh
 
 RUN mkdir -p /var/nodejs/mini-api-node
 
@@ -63,6 +64,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     python \
     && rm -rf /var/lib/apt/lists/*
 
+HEALTHCHECK --interval=5s --timeout=20s --retries=1 CMD healthcheck.sh
 WORKDIR /var/nodejs/mini-api-node
 
 USER app
