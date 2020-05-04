@@ -21,3 +21,23 @@ services:
       ENV_LOG_DISABLE_STATUS: 1
     networks:
       front:
+
+  bdd-postgres:
+    container_name: bdd-postgres
+    build: ${MINI_API_PATH:-.}/docker/postgres
+    image: nexus.wako057.net:18442/bdd-postgres:1.0.0
+    ports:
+      - "5032:5432"
+    volumes:
+      - bdd-postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+    networks:
+      back:
+        aliases:
+          - dev-pgsql-01.dev.wako057.net
+    labels:
+      traefik.enable: false
+
+volumes:
+  bdd-postgres-data:
