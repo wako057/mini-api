@@ -2,7 +2,7 @@
 
 Mini api implementation
 
-# Setup
+# Setup
 
 mydocker mini-api build mini-api-node
 
