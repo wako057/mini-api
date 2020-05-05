@@ -10,5 +10,4 @@ echo "[TaskStart][Init] Use config-template.json to generate config.json" 1>&2
 make config
 echo "[TaskEnd][Init] Use config-template.json to generate config.json" 1>&2
 
-#node app.js
 npm run server:dev

@@ -1,7 +1,6 @@
 FROM debian:stretch-20190610-slim
 ENV GOSU_VERSION 1.11
 ENV NODE_VERSION 12.16.3
-ENV PROJECT_NAME "mini-api-node"
 
 # System tools
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -63,10 +62,14 @@ RUN mkdir -p /var/nodejs/mini-api-node
 RUN apt-get update && apt-get install --no-install-recommends -y \
     python \
     && rm -rf /var/lib/apt/lists/*
+# custom shell & misc
+RUN git clone https://github.com/wako057/linuxinit.git && linuxinit/init.sh
 
 HEALTHCHECK --interval=5s --timeout=20s --retries=1 CMD healthcheck.sh
 WORKDIR /var/nodejs/mini-api-node
 
 USER app
 SHELL [ "/bin/bash", "-c" ]
+# custom shell & misc
+RUN cd && git clone https://github.com/wako057/linuxinit.git && linuxinit/init.sh
 CMD [ "run.sh" ]
