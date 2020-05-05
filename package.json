@@ -14,8 +14,9 @@
     "tests:sonar": "sonar-scanner -Dsonar.host.url=http://sonar.wako057.net"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "amqplib": "^0.5.5",
     "bunyan": "^1.8.1",
+    "express": "^4.17.1",
     "morgan": "^1.9.1"
   },
   "devDependencies": {
