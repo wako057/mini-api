@@ -21,6 +21,55 @@ services:
       ENV_LOG_DISABLE_STATUS: 1
     networks:
       front:
+        aliases:
+          - mini-api.wako057.net
+      back:
+        aliases:
+          - mini-api.back.wako057.net
+
+  factory-api-node:
+    container_name: factory-api-node
+    build: ${MINI_API_PATH:-.}/docker/node-factory
+    image: nexus.wako057.net:18442/factory-api-node:1.0.0
+    volumes:
+      - ${MINI_API_PATH:-.}/:/var/nodejs/factory-api-node
+    expose:
+      - 8080
+    labels:
+      traefik.frontend.rule: "Host: factory-api.wako057.net"
+      traefik.docker.network: "front"
+      traefik.port: 8080
+      traefik.frontend.entryPoints: http
+    environment:
+      NODE_PORT: 8080
+      NODE_ENV: development
+      ENV_LOG_LEVEL: trace
+      ENV_LOG_DISABLE_STATUS: 1
+    networks:
+      back:
+
+  rabbitmq-orders:
+    image: 'bitnami/rabbitmq:3.8'
+    container_name: rabbitmq-orders
+    expose:
+      - 4369
+      - 5672
+      - 25672
+      - 15672
+    ports:
+      - '4369:4369'
+      - '5672:5672'
+      - '25672:25672'
+      - '15672:15672'
+    environment:
+      RABBITMQ_USERNAME: "admin"
+      RABBITMQ_PASSWORD: "admin123"
+    volumes:
+      - 'rabbitmq_data:/bitnami'
+    networks:
+      back:
+        aliases:
+          - rabbitmq-orders.back.wako057.net
 
   bdd-postgres:
     container_name: bdd-postgres
@@ -41,3 +90,5 @@ services:
 
 volumes:
   bdd-postgres-data:
+  rabbitmq_data:
+    driver: local
