@@ -22,6 +22,6 @@ describe("[FUNCTIONAL]: status routes", () => {
     });
 
     afterAll(async () => {
-        // await server.close();
+        done();
     });
 });
