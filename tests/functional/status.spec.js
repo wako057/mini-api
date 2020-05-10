@@ -1,14 +1,14 @@
 "use strict";
 
 const supertest = require("supertest");
-const server = require("../../server");
+const app = require("../../src/app");
 
 describe("[FUNCTIONAL]: status routes", () => {
 
     let request;
 
     beforeAll(async done => {
-        request = await supertest(server)
+        request = await supertest(app)
         return done();
     });
 
@@ -21,7 +21,7 @@ describe("[FUNCTIONAL]: status routes", () => {
             });
     });
 
-    afterAll(() => {
-        app.close();
+    afterAll(async () => {
+        // await server.close();
     });
 });
