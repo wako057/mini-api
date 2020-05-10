@@ -20,7 +20,6 @@ router.post("/", async (req, res, next) => {
 });
 
 router.get("/", async (req, res, next) => {
-    console.log("arg: ", req.query.user_id);
     const userRepository = new User(req.logger);
 
     try {

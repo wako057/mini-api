@@ -21,7 +21,6 @@ class User extends Repository {
 
 
         const isValid = this.validator.isJsonSchemaValid(payload, this.schema);
-        console.log("isValid: ", isValid);
         if (isValid) {
             try {
                 payload.email = payload.email.toLowerCase();
