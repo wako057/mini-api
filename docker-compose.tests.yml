@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bdd_tests:
+    image: postgres:11.7
+    container_name: bdd-postgres-tests
+    ports:
+      - "54321:5432"
+    volumes:
+      - bdd-tests-postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: mini_api
+      POSTGRES_PASSWORD: mini_api
+      POSTGRES_DB: mini_api
+
+volumes:
+  bdd-tests-postgres-data:
