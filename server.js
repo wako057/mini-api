@@ -1,8 +1,8 @@
 "use strict";
 
 const port = process.env.PORT || 8080;
-const config = require("./src/config");
-const loggers = require("./src/logger").init(config.logs);
+const config = require("./src/libs/config");
+const loggers = require("./src/libs/logger").init(config.logs);
 const app = require("./src/app")(config, loggers);
 
 const server = app.getApp().listen(port, () => {
