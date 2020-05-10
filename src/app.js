@@ -2,7 +2,7 @@
 
 const app = require("express")();
 const http = require("http").Server(app);
-const errorHandler = require("./errorHandler");
+const errorHandler = require("./libs/errorHandler");
 
 const routes = require("./routes/index");
 
