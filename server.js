@@ -10,3 +10,6 @@ const server = app.getApp().listen(port, () => {
 Process ${process.pid} is listening to all incoming requests on port ${port},
 workerProcess: ${process.pid}`);
 });
+
+
+module.exports = server;
