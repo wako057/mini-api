@@ -31,12 +31,11 @@ types.setTypeParser(PURE_DATE_OID, val => {
     return val === null ? null : Moment(val).format("YYYY-MM-DD");
 });
 
+const knex = require("knex")(knexConf);
 
-knexRead.on("query", query => {
+knex.on("query", query => {
     loggers.logger.debug("", query.sql, query.bindings);
 });
-
-const knex = require("knex")(knexConf);
 
 exports.db = knex;
 
