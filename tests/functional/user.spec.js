@@ -27,7 +27,6 @@ describe("[FUNCTIONAL]: user routes", () => {
                 .expect(201)
                 .then(res => {
                     const answer = res.body[0];
-                    // expect(res.body).toMatchObject(expectedResult);
                     expect(answer).toHaveProperty("id");
                     expect(answer).toHaveProperty("civility");
                     expect(answer).toHaveProperty("first_name");
@@ -38,10 +37,10 @@ describe("[FUNCTIONAL]: user routes", () => {
                 });
         });
 
-        it.only("get user", (done) => {
+        it("get user", (done) => {
             const expectedResult = require("../data/get-user.json");
 
-            return request.get('/v1/users?user_id=5fa405f7-4001-4c63-83d2-5df3225ffc8')
+            return request.get('/v1/users?user_id=5fa405f7-4001-4c63-83d2-5df3225ffc8c')
                 .expect(200)
                 .then(res => {
                     expect(res.body).toMatchObject(expectedResult);
