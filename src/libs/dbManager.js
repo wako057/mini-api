@@ -1,7 +1,7 @@
 "use strict";
 
-const config = require("./config");
-const loggers = require("./logger").init(config.logs);
+const config = require("js-config");
+const loggers = require("js-logger").init(config.logs);
 const types = require("pg").types;
 const Moment = require("moment");
 const INT8_OID = 20;
