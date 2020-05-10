@@ -9,6 +9,9 @@ module.exports = (err, req, res, next) => {
         case "ValidationError":
             res.status(400).send(err.message);
             break;
+        case "AlreadyExist":
+            res.status(403).send(err.message);
+            break;
         case "NotFound":
             res.status(404).send(err.message);
             break;

@@ -9,9 +9,9 @@ services:
     volumes:
       - bdd-tests-postgres-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: mini_api
-      POSTGRES_PASSWORD: mini_api
-      POSTGRES_DB: mini_api
+      POSTGRES_USER: mini_api_test
+      POSTGRES_PASSWORD: mini_api_test
+      POSTGRES_DB: mini_api_test
 
 volumes:
   bdd-tests-postgres-data:

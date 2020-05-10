@@ -18,18 +18,24 @@ BEGIN
 END;
 $$;
 
+create type gender_enum as enum('Mr', 'Mme');
+
 --- tables creation
-create table "users"
+create table users
 (
     id uuid default extensions.uuid_generate_v4() not null
         constraint users_pkey
-        primary key,
-    name text,
+            primary key,
+    civility gender_enum default 'Mr'::gender_enum not null,
+    first_name text,
     last_name text,
     email email,
     created timestamp with time zone default now() not null,
     updated timestamp with time zone
 );
+
+create unique index users_email_uindex
+    on users (email);
 
 create table avatar_options
 (

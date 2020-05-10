@@ -12,10 +12,8 @@
     "protocol": "postgres",
     "host": "localhost",
     "port": 54321,
-    "user": "indbuserapi_test",
-    "password": "indbuserapi_test",
-    "database": "indbuserapi_test",
-    "max": 20,
-    "min": 4
+    "user": "mini_api_test",
+    "password": "mini_api_test",
+    "database": "mini_api_test"
   }
 }
