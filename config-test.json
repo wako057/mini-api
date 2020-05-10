@@ -1,0 +1,21 @@
+{
+  "logs": {
+    "name": "mini-api",
+    "files": {
+      "enable": true,
+      "path": "logs/",
+      "name": "mini-api",
+      "level": "info"
+    }
+  },
+  "databases": {
+    "protocol": "postgres",
+    "host": "localhost",
+    "port": 54321,
+    "user": "indbuserapi_test",
+    "password": "indbuserapi_test",
+    "database": "indbuserapi_test",
+    "max": 20,
+    "min": 4
+  }
+}
