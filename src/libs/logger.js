@@ -124,7 +124,7 @@ function init (config) {
         headersToLog = config.headersToLog;
     }
 
-    if (env === "development" || debug) {
+    if (env === "development" || env === "test") {
         streams.push({
             level: envLogLevel,
             stream: process.stdout
