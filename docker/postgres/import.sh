@@ -31,6 +31,7 @@ echo "###################################################" 1>&2
 createdb 'miniapi'
 # Download and import latest data dump
 psql --dbname miniapi -f /docker-entrypoint-initdb.d/sql/001-structure.sql
+psql --dbname miniapi -f /docker-entrypoint-initdb.d/sql/002-data.sql
 psql --dbname miniapi -c 'ANALYZE'
 
 
