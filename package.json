@@ -1,8 +1,8 @@
 {
-  "name": "indb-live-realtime-api",
+  "name": "Mini-api",
   "version": "0.0.1",
-  "description": "Live realtime API",
-  "private": true,
+  "description": "Mini-api",
+  "private": false,
   "main": "server.js",
   "scripts": {
     "build": "echo 'nothing to do yet'",
