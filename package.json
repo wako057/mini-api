@@ -9,7 +9,7 @@
     "server:dev": "nodemon server.js | bunyan",
     "poller:dev": "nodemon poller.js | bunyan",
     "tests:eslint": "eslint .",
-    "tests": "NODE_ENV=test NODE_PORT=4242 jest --verbose --runInBand --detectOpenHandles",
+    "tests": "NODE_ENV=test NODE_PORT=4242 jest --verbose --runInBand --forceExit",
     "tests:watch": "NODE_ENV=test NODE_PORT=4242 jest --verbose --runInBand --detectOpenHandles --watch",
     "tests:coverage": "NODE_ENV=test jest --runInBand --coverage",
     "tests:sonar": "sonar-scanner -Dsonar.host.url=http://sonar.wako057.net"
