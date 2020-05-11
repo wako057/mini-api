@@ -10,10 +10,8 @@ router.post("/", async (req, res, next) => {
     const userRepository = new User(req.logger);
 
     try {
-
         const createChk = await userRepository.create(req.body);
         return res.status(201).send(createChk);
-
     } catch (error) {
         next(error);
     };
