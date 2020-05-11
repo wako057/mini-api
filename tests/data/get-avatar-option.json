@@ -1,0 +1,12 @@
+[
+  {
+    "id": "fabb59b6-dff9-419c-9e1d-cad047eda6a2",
+    "category": "clothes",
+    "definition": {
+      "type": "jeans",
+      "color": "#343f51",
+      "sizel": "36",
+      "sizew": "38"
+    }
+  }
+]
