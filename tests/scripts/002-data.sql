@@ -30,3 +30,16 @@ INSERT INTO public.users (id, civility, first_name, last_name, email, created, u
 INSERT INTO public.users (id, civility, first_name, last_name, email, created, updated) VALUES ('d06bad9f-824a-4f1a-a7b0-17cf8e24139f', 'Mr', 'Greg', 'Gerard', 'ar3434nezp@wako057.net', '2020-05-10 22:11:05.086303', null);
 INSERT INTO public.users (id, civility, first_name, last_name, email, created, updated) VALUES ('88a20526-afe6-4bb1-a825-56e763faaa51', 'Mr', 'Greg', 'Gerard', 'he5w9hdw3b@wako057.net', '2020-05-10 22:11:08.733913', null);
 INSERT INTO public.users (id, civility, first_name, last_name, email, created, updated) VALUES ('a07560b7-71c6-462f-b0e8-92f76925d12d', 'Mr', 'Greg', 'Gerard', '7hq9mpcr8b7@wako057.net', '2020-05-10 22:11:14.829901', null);
+
+
+-- tables avatar options
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('842b213e-51c3-460b-b225-b90da0bc228c', 'hair', '{"color": "#f4d3a2", "length": "short"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('b16613ba-291c-486a-b58f-06bfe9586a57', 'hair', '{"color": "#f4d3a2", "length": "medium"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('146dc4f3-5fb0-4826-a374-50b4ce30c17f', 'hair', '{"color": "#f4d3a2", "length": "long"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('a6e69166-30bc-43f3-9cf8-9f30d97a9cd8', 'skin', '{"color": "#000"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('74fe88b9-6493-4484-8b0d-6ce687ccd467', 'clothes', '{"size": "m", "type": "jacket", "color": "#fff"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('67fd5f9c-0e3e-4e94-a33e-1e6008efe306', 'clothes', '{"size": "m", "type": "jeans", "color": "#fff"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('fabb59b6-dff9-419c-9e1d-cad047eda6a2', 'clothes', '{"type": "jeans", "color": "#343f51", "sizel": "36", "sizew": "38"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('35379c76-3698-4806-90ff-c16bf4d9b42e', 'clothes', '{"size": "42", "type": "shoes", "color": "#424242"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('3d916ffb-0f36-4faf-acc3-4d24defbac2c', 'clothes', '{"size": "42", "type": "hat", "color": "#424242"}');
+INSERT INTO public.avatar_options (id, category, definition) VALUES ('fcb15ce4-9000-4e34-9bac-143ea9271bfe', 'clothes', '{"size": "24", "type": "hat", "color": "#5b352c"}');
