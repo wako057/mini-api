@@ -12,13 +12,8 @@ class User extends Repository {
         super(logger, "users", schema);
     }
 
-    getUser (id) {
-
-    }
-
     async create (userObj) {
         const payload = {...userObj};
-
 
         const isValid = this.validator.isJsonSchemaValid(payload, this.schema);
         if (isValid) {

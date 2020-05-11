@@ -79,7 +79,6 @@ describe("[FUNCTIONAL]: user routes", () => {
         });
 
         it("fail create a user (bad params)", () => {
-            const randomStr = Math.random().toString(36).substring(2);
             const newUser = {
                 first_name: "Greg",
                 civility: "Mr"
