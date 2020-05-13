@@ -58,13 +58,16 @@ create table users
 create unique index users_email_uindex
     on users (email);
 
+
 create table avatar_options
 (
     id uuid default extensions.uuid_generate_v4() not null
         constraint avatar_options_pk
             primary key,
     category text not null,
-    definition jsonb default '{}'::jsonb not null
+    definition jsonb default '{}'::jsonb not null,
+    created timestamp with time zone default now() not null,
+    updated timestamp with time zone
 );
 
 create table avatar
@@ -75,8 +78,11 @@ create table avatar
     user_id uuid not null
         constraint avatar_users_id_fk
             references users,
-    description jsonb not null
+    description jsonb not null,
+    created timestamp with time zone default now() not null,
+    updated timestamp with time zone
 );
+
 
 
 create type order_status_enum as enum('init', 'order_sent', 'building', 'built', 'sending');
@@ -111,4 +117,15 @@ create trigger update_users_modtime
     for each row
 execute procedure update_modified_column();
 
+create trigger update_users_modtime
+    before update
+    on avatar_options
+    for each row
+execute procedure update_modified_column();
 
+
+create trigger update_users_modtime
+    before update
+    on avatar
+    for each row
+execute procedure update_modified_column();
