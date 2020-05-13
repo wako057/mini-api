@@ -43,7 +43,9 @@ create table avatar_options
         constraint avatar_options_pk
         primary key,
     category text not null,
-    definition jsonb default '{}'::jsonb not null
+    definition jsonb default '{}'::jsonb not null,
+    created timestamp with time zone default now() not null,
+    updated timestamp with time zone
 );
 
 create table avatar
@@ -54,7 +56,9 @@ create table avatar
     user_id uuid not null
         constraint avatar_users_id_fk
         references users,
-    description jsonb not null
+    description jsonb not null,
+    created timestamp with time zone default now() not null,
+    updated timestamp with time zone
 );
 
 
@@ -91,5 +95,17 @@ create trigger update_users_modtime
 execute procedure update_modified_column();
 
 
+create trigger update_users_modtime
+    before update
+    on avatar_options
+    for each row
+execute procedure update_modified_column();
+
+
+create trigger update_users_modtime
+    before update
+    on avatar
+    for each row
+execute procedure update_modified_column();
 
 
