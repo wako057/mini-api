@@ -2,12 +2,12 @@
 
 const db = require("../libs/dbManager").db;
 const Repository = require("./repository");
-const schema = require("../schemas/avatar");
+const schema = require("../schemas/avatars");
 const ErrorValidation = require("../libs/errorValidation");
 
 class AvatarOptions extends Repository {
     constructor (logger) {
-        super(logger, "avatar", schema);
+        super(logger, "avatars", schema);
     }
 
     async create (userId, userObj) {
@@ -16,7 +16,7 @@ class AvatarOptions extends Repository {
         if (isValid) {
             try {
                 payload.description = JSON.stringify(payload.description);
-                const resWrite = await db("avatar").insert(payload, "*");
+                const resWrite = await db("avatars").insert(payload, "*");
                 return resWrite;
 
             } catch (e) {

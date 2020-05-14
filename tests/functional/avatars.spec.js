@@ -3,7 +3,7 @@
 const supertest = require("supertest");
 const app = require("../../src/app");
 
-describe.only("[FUNCTIONAL]: profile routes", () => {
+describe.only("[FUNCTIONAL]: avatars routes", () => {
     let request;
 
     beforeAll(async done => {
@@ -21,7 +21,7 @@ describe.only("[FUNCTIONAL]: profile routes", () => {
                 ];
             const userId = '227409de-4d81-47c9-a6ff-e06d7dc9a567';
 
-            return request.post(`/v1/avatar/${userId}`)
+            return request.post(`/v1/avatars/${userId}`)
                 .send(avatar)
                 .expect(201)
                 .then(res => {
@@ -36,7 +36,7 @@ describe.only("[FUNCTIONAL]: profile routes", () => {
 
         it.only("get a avatar", (done) => {
             const expectedResult = require("../data/get-avatar.json");
-            return request.get('/v1/avatar/385e7678-9c1e-470a-a520-03cf12edfb54')
+            return request.get('/v1/avatars/385e7678-9c1e-470a-a520-03cf12edfb54')
                 .expect(200)
                 .then(res => {
                     expect(res.body).toMatchObject(expectedResult);
