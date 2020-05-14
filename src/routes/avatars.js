@@ -1,12 +1,12 @@
 "use strict";
 
 const router = require("express").Router();
-const Avatar = require("../repositories/avatar");
+const Avatars = require("../repositories/avatars");
 const ErrorNotFound = require("../libs/errorNotFound");
 const ErrorValidation = require("../libs/errorValidation");
 
 router.post("/:userId", async (req, res, next) => {
-    const avatar = new Avatar(req.logger);
+    const avatar = new Avatars(req.logger);
     try {
         const createChk = await avatar.create(req.params.userId, req.body);
         return res.status(201).send(createChk);
@@ -16,7 +16,7 @@ router.post("/:userId", async (req, res, next) => {
 });
 
 router.get("/:uuid", async (req, res, next) => {
-    const avatar = new Avatar(req.logger);
+    const avatar = new Avatars(req.logger);
     try {
         const getChk = await avatar.get(req.params.uuid);
         if (getChk.length === 0) {
