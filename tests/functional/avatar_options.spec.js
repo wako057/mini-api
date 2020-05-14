@@ -3,7 +3,7 @@
 const supertest = require("supertest");
 const app = require("../../src/app");
 
-describe("[FUNCTIONAL]: profile routes", () => {
+describe("[FUNCTIONAL]: avatar_options routes", () => {
     let request;
 
     beforeAll(async done => {
