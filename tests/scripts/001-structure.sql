@@ -70,13 +70,13 @@ create table avatar_options
     updated timestamp with time zone
 );
 
-create table avatar
+create table avatars
 (
     id uuid default extensions.uuid_generate_v4() not null
-        constraint avatar_pk
+        constraint avatars_pk
             primary key,
     user_id uuid not null
-        constraint avatar_users_id_fk
+        constraint avatars_users_id_fk
             references users,
     description jsonb not null,
     created timestamp with time zone default now() not null,
@@ -96,8 +96,8 @@ create table orders
         constraint orders_users_id_fk
             references users,
     avatar_id uuid not null
-        constraint orders_avatar_id_fk
-            references avatar,
+        constraint orders_avatars_id_fk
+            references avatars,
     status order_status_enum default 'init' not null,
     created timestamp with time zone default now() not null,
     updated timestamp with time zone
@@ -126,6 +126,6 @@ execute procedure update_modified_column();
 
 create trigger update_users_modtime
     before update
-    on avatar
+    on avatars
     for each row
 execute procedure update_modified_column();
