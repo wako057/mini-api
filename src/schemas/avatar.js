@@ -11,6 +11,24 @@ const schema = {
         description: {
             required: true,
             type: "array",
+            properties: {
+                type: "object",
+                additionalProperties: false,
+                properties: {
+                    id: {
+                        required: true,
+                        type: "string"
+                    },
+                    category: {
+                        required: true,
+                        type: "integer"
+                    },
+                    definition: {
+                        required: true,
+                        type: "object"
+                    }
+                }
+            }
         }
     }
 };
