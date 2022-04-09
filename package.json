@@ -23,7 +23,7 @@
     "js-logger": "github:wako057/js-logger#v1.0.0",
     "js-schema-validator": "github:wako057/js-schema-validator#v1.0.0",
     "knex": "^0.21.1",
-    "moment": "^2.25.3",
+    "moment": "^2.29.2",
     "morgan": "^1.9.1",
     "pg": "^8.0.3"
   },
