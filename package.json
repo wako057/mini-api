@@ -18,7 +18,7 @@
     "amqplib": "^0.5.5",
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "js-config": "github:wako057/js-config#v1.0.0",
     "js-logger": "github:wako057/js-logger#v1.0.0",
     "js-schema-validator": "github:wako057/js-schema-validator#v1.0.0",
